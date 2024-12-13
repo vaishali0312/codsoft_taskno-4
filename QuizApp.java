@@ -10,13 +10,13 @@ public class QuizApp {
     private JRadioButton[] options;
     private ButtonGroup optionGroup;
     private JButton submitButton;
-    private javax.swing.Timer timer; // Use javax.swing.Timer explicitly
+    private javax.swing.Timer timer; 
     private int currentQuestionIndex = 0;
     private int score = 0;
     private int totalQuestions = 5;
-    private java.util.List<Question> questions; // Use java.util.List explicitly
+    private java.util.List<Question> questions;
     private JLabel timerLabel;
-    private int remainingTime = 10; // 10 seconds per question
+    private int remainingTime = 10; 
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
@@ -27,34 +27,33 @@ public class QuizApp {
     private void createAndShowGUI() {
         frame = new JFrame("Quiz Application");
         panel = new JPanel();
-        panel.setLayout(new BorderLayout(10, 10));  // Use some space between components
+        panel.setLayout(new BorderLayout(10, 10)); 
 
-        // Set up the question label
+     
         questionLabel = new JLabel();
         questionLabel.setFont(new Font("Arial", Font.BOLD, 18));
 
-        // Set up options
+    
         options = new JRadioButton[4];
         optionGroup = new ButtonGroup();
         JPanel optionsPanel = new JPanel();
         optionsPanel.setLayout(new BoxLayout(optionsPanel, BoxLayout.Y_AXIS));
 
-        // Create option radio buttons
         for (int i = 0; i < 4; i++) {
             options[i] = new JRadioButton();
             optionsPanel.add(options[i]);
             optionGroup.add(options[i]);
         }
 
-        // Submit button
+       
         submitButton = new JButton("Submit Answer");
         submitButton.addActionListener(this::handleSubmit);
 
-        // Timer label
+      
         timerLabel = new JLabel("Time left: 10", JLabel.CENTER);
         timerLabel.setFont(new Font("Arial", Font.BOLD, 16));
 
-        // Set up layout for the panel
+      
         JPanel topPanel = new JPanel(new BorderLayout());
         topPanel.add(questionLabel, BorderLayout.CENTER);
         topPanel.add(timerLabel, BorderLayout.EAST);
@@ -67,7 +66,7 @@ public class QuizApp {
         panel.add(topPanel, BorderLayout.NORTH);
         panel.add(bottomPanel, BorderLayout.CENTER);
 
-        // Frame setup
+      
         frame.add(panel);
         frame.setSize(600, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -145,7 +144,7 @@ public class QuizApp {
                 return i;
             }
         }
-        return -1; // No option selected
+        return -1; 
     }
 
     private void showResults() {
